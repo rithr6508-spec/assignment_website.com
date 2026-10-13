@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h2>KEYBOARD</h2>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="actions">
+        <button onclick="openCart()">🛒 <span id="cartCount">0</span></button>
+        <button onclick="openLogin()">Login</button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="heroText">
+        <small>WELCOME!</small>
+
+        <h1>
+            We will provide quality
+            and excellent products.
+        </h1>
+
+        <p>Best gaming keyboard and accessories.</p>
+
+        <button onclick="goProducts()">Order Now</button>
+    </div>
+
+    <img src="images/hero.jpg" alt="Keyboard">
+</section>
+
+
+<!-- CATEGORY -->
+<section class="categories">
+
+    <div onclick="filterProducts('Keyboard')">
+        ⌨️
+        <p>Keyboard</p>
+    </div>
+
+    <div onclick="filterProducts('Mouse')">
+        🖱️
+        <p>Mouse</p>
+    </div>
+
+    <div onclick="filterProducts('Headset')">
+        🎧
+        <p>Headset</p>
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+
+    <div class="title">
+        <small>THIS IS OUR PRODUCTS</small>
+        <h2>Our Products</h2>
+    </div>
+
+    <div class="searchBox">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search products..."
+            oninput="searchProducts()"
+        >
+
+        <select id="category" onchange="filterProducts(this.value)">
+            <option value="All">All</option>
+            <option value="Keyboard">Keyboard</option>
+            <option value="Mouse">Mouse</option>
+            <option value="Headset">Headset</option>
+        </select>
+
+    </div>
+
+    <div class="products" id="productList"></div>
+
+</section>
+
+
+<!-- SPECIAL -->
+<section class="special">
+
+    <div class="title">
+        <small>OUR SPECIAL PRODUCTS</small>
+        <h2>Special Products</h2>
+    </div>
+
+    <div class="specialProducts">
+
+        <div>
+            <img src="images/special1.jpg">
+            <h3>Gaming Keyboard</h3>
+            <p>$49.99</p>
+        </div>
+
+        <div>
+            <img src="images/special2.jpg">
+            <h3>Mechanical Keyboard</h3>
+            <p>$59.99</p>
+        </div>
+
+        <div>
+            <img src="images/special3.jpg">
+            <h3>Gaming Mouse</h3>
+            <p>$29.99</p>
+        </div>
+
+        <div>
+            <img src="images/special4.jpg">
+            <h3>Gaming Headset</h3>
+            <p>$39.99</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROMOTION -->
+<section class="promotion">
+
+    <img src="images/promotion1.jpg">
+
+    <div>
+        <h2>
+            Check out our best<br>
+            Gaming Products
+        </h2>
+
+        <button onclick="goProducts()">Shop Now</button>
+    </div>
+
+    <img src="images/promotion2.jpg">
+
+</section>
+
+
+<!-- REVIEWS -->
+<section class="section" id="about">
+
+    <div class="title">
+        <small>OUR HAPPY CUSTOMERS</small>
+        <h2>Customer Reviews</h2>
+    </div>
+
+    <div class="reviews">
+
+        <div>
+            <b>Alex Gaming</b>
+            <span>★★★★★</span>
+            <p>Very good keyboard and excellent quality.</p>
+        </div>
+
+        <div>
+            <b>Smart User</b>
+            <span>★★★★★</span>
+            <p>Beautiful design and good price.</p>
+        </div>
+
+        <div>
+            <b>Keyboard Fan</b>
+            <span>★★★★★</span>
+            <p>Fast delivery and very good products.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div>
+        <h2>KEYBOARD</h2>
+        <p>Gaming products for everyone.</p>
+    </div>
+
+    <div>
+        <h4>MENU</h4>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+    </div>
+
+    <div>
+        <h4>CATEGORIES</h4>
+        <a href="#">Keyboard</a>
+        <a href="#">Mouse</a>
+        <a href="#">Headset</a>
+    </div>
+
+    <div>
+        <h4>CONTACT</h4>
+        <p>+855 12 345 678</p>
+        <p>keyboard@gmail.com</p>
+    </div>
+
+</footer>
+
+
+<!-- CART -->
+<div class="modal" id="cartModal">
+
+    <div class="modalBox">
+
+        <button class="close" onclick="closeCart()">×</button>
+
+        <h2>🛒 Shopping Cart</h2>
+
+        <div id="cartItems"></div>
+
+        <hr>
+
+        <h3>Total: <span id="total">$0.00</span></h3>
+
+        <button class="checkout" onclick="checkout()">
+            Order Now
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- LOGIN -->
+<div class="modal" id="loginModal">
+
+    <div class="modalBox login">
+
+        <button class="close" onclick="closeLogin()">×</button>
+
+        <h2>Login</h2>
+
+        <input id="username" placeholder="Username">
+
+        <input
+            id="password"
+            type="password"
+            placeholder="Password"
+        >
+
+        <button onclick="login()">Login</button>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
